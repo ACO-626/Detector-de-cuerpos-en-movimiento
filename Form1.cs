@@ -16,14 +16,31 @@ namespace Detector_de_cuerpos_en_movimiento
     public partial class Form1 : Form
     {
 
+        #region Variables Globales
         VideoCapture video;
         bool pausa = false;
+        int tiempo = 60;
 
+
+        //Region de detección de movimiento
+        Image<Gray, byte> frame1;
+        Image<Gray, byte> frame2;
+        Image<Gray, byte> imgOut;
+
+        Graphics papel;
+        Pen pluma = new Pen(Color.Red);
+
+        #endregion
+
+
+        #region Inicialización
         public Form1()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Importación de video
         private void importarVideoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ImportacionVideo();
@@ -40,7 +57,9 @@ namespace Detector_de_cuerpos_en_movimiento
                 pictureFrameVideo.Image = matriz.Bitmap;
             }
         }
+        #endregion
 
+        #region Control de video
         private async void btnPlay_Click(object sender, EventArgs e)
         {
             pausa = false;
@@ -58,9 +77,9 @@ namespace Detector_de_cuerpos_en_movimiento
                     if (!matriz.IsEmpty)
                     {
                         pictureFrameVideo.Image = matriz.Bitmap;
-                        double fps = video.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.Fps);
+                        //double fps = video.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.Fps);
                         //await Task.Delay(1000/Convert.ToInt32( fps));
-                        await Task.Delay(1000 / 60);
+                        await Task.Delay(1000 / tiempo);
                     }
                     else
                     {
@@ -80,6 +99,16 @@ namespace Detector_de_cuerpos_en_movimiento
             pausa = true;
         }
 
-        
+
+        #endregion
+
+
+        #region Tiempo
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            tiempo = trackBar1.Value;
+            label2.Text =trackBar1.Value.ToString();
+        }
+        #endregion
     }
 }

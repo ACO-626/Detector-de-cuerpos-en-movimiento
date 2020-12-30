@@ -36,11 +36,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
-            this.btnDetect = new System.Windows.Forms.Button();
             this.pictureFrameVideo = new System.Windows.Forms.PictureBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFrameVideo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -83,13 +86,15 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.trackBar1);
             this.panel1.Controls.Add(this.btnPause);
             this.panel1.Controls.Add(this.btnPlay);
-            this.panel1.Controls.Add(this.btnDetect);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 429);
+            this.panel1.Location = new System.Drawing.Point(0, 416);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 100);
+            this.panel1.Size = new System.Drawing.Size(780, 152);
             this.panel1.TabIndex = 1;
             // 
             // btnPause
@@ -98,7 +103,7 @@
             this.btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPause.Location = new System.Drawing.Point(290, 25);
+            this.btnPause.Location = new System.Drawing.Point(387, 12);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(90, 49);
             this.btnPause.TabIndex = 3;
@@ -112,26 +117,13 @@
             this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlay.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPlay.Location = new System.Drawing.Point(194, 25);
+            this.btnPlay.Location = new System.Drawing.Point(291, 12);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(90, 49);
             this.btnPlay.TabIndex = 1;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = false;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // btnDetect
-            // 
-            this.btnDetect.BackColor = System.Drawing.Color.Purple;
-            this.btnDetect.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDetect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetect.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDetect.Location = new System.Drawing.Point(482, 25);
-            this.btnDetect.Name = "btnDetect";
-            this.btnDetect.Size = new System.Drawing.Size(90, 49);
-            this.btnDetect.TabIndex = 0;
-            this.btnDetect.Text = "Detectar";
-            this.btnDetect.UseVisualStyleBackColor = false;
             // 
             // pictureFrameVideo
             // 
@@ -142,12 +134,43 @@
             this.pictureFrameVideo.TabIndex = 2;
             this.pictureFrameVideo.TabStop = false;
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(12, 95);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Minimum = 1;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(210, 45);
+            this.trackBar1.TabIndex = 4;
+            this.trackBar1.Value = 60;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(22, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "FPS";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(218, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "60";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(780, 529);
+            this.ClientSize = new System.Drawing.Size(780, 568);
             this.Controls.Add(this.pictureFrameVideo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -157,7 +180,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFrameVideo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,10 +196,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnDetect;
         private System.Windows.Forms.PictureBox pictureFrameVideo;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
